@@ -1,14 +1,135 @@
 {
-  "posts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 }
-  ],
-  "profile": {
-    "name": "typicode"
+  "version": "1.1.0",
+  "defaultSettings": {
+    "appDefaultLanguages": [
+      "en-US",
+      "es-mx",
+      "ar-sa"
+    ],
+    "branding": "itson",
+    "catalogUrls": [
+      {
+        "locale": "en-US",
+        "url": "http://sapphire-op.cdn.itsonsaas.net/op-assets/sapphire/catalog/specialized_en-us.json"
+      },
+      {
+        "locale": "ar-sa",
+        "url": "http://sapphire-op.cdn.itsonsaas.net/op-assets/sapphire/catalog/specialized_ar-sa.json"
+      }
+    ],
+    "countryCode": "1",
+    "customerServicePhoneNumber": "001-844-326-1261",
+    "defaultMCCMNC": "334030",
+    "emailAddressRegisterUrl": "https://accounts.google.com/SignUp",
+    "emergencyPhoneNumber": "911",
+    "enable": true,
+    "headerEnrichmentUrl": "http://%@.home.itsonsaas.net",
+    "includedCountryCodeInMDN": false,
+    "mccmncOverride": {
+      "23456": "334030",
+      "45698000": "334030"
+    },
+    "phoneNumberValidator": "None",
+    "serviceDiscoveryUrl": "https://%@.home.itsonsaas.net:8443",
+    "timeOutInterval": 180
+  },
+  "tenantConfigs": {
+    "Production": {
+      "configInfo": {
+        "name": "Production",
+        "detail": "Production Environment",
+        "comments": "Place holder for production."
+      },
+      "settingOverwrites": {
+        "enable": false
+      }
+    },
+    "QA": {
+      "configInfo": {
+        "name": "QA",
+        "detail": "QA Environment",
+        "comments": "Generic QA Environment"
+      },
+      "settingOverwrites": {
+        "headerEnrichmentUrl": "http://%@.home.qa.itsonsaas.net",
+        "serviceDiscoveryUrl": "https://%@.home.qa.itsonsaas.net:8443"
+      }
+    },
+    "TEMM QA": {
+      "configInfo": {
+        "name": "TEMM QA",
+        "detail": "TEMM QA Environment",
+        "comments": "TEMM QA Environment - Connect to TEMM QA using apps other than TEMM"
+      },
+      "settingOverwrites": {
+        "baseConfig": "QA",
+        "headerEnrichmentUrl": "http://%@.home.qa.itsonsaas.net",
+        "serviceDiscoveryUrl": "https://%@.home.qa.itsonsaas.net:8443",
+        "branding": "temm",
+        "catalogUrls": [
+          {
+            "locale": "en-US",
+            "url": "http://qa.cdn.itsonsaas.net/op-assets/temm/catalog/specialized_en-us.json"
+          },
+          {
+            "locale": "es-MX",
+            "url": "http://qa.cdn.itsonsaas.net/op-assets/temm/catalog/specialized.json"
+          }
+        ],
+        "defaultMCCMNC": "334030",
+        "mccmncOverride": {
+          "334030": "334030",
+          "*": "334030"
+        },
+        "tenantId": "tefmx"
+      }
+    },
+    "Staging": {
+      "configInfo": {
+        "name": "Staging",
+        "detail": "Staging Environment",
+        "comments": "Generic Staging Environment"
+      },
+      "settingOverwrites": {
+        "name": "Staging",
+        "headerEnrichmentUrl": "http://334030.home.qa.itsonsaas.net",
+        "serviceDiscoveryUrl": "https://334030.home.qa.itsonsaas.net:8443",
+        "timeOutInterval": 120
+      }
+    },
+    "PreProd": {
+      "configInfo": {
+        "name": "Pre Production",
+        "detail": "PreProduction Environment",
+        "comments": "Just an example, it may not work"
+      },
+      "settingOverwrites": {
+        "enable": false,
+        "headerEnrichmentUrl": "http://%@.home.preprod.itsonsaas.net",
+        "serviceDiscoveryUrl": "https://%@.home.preprod.itsonsaas.net:8443"
+      }
+    },
+    "Demo": {
+      "configInfo": {
+        "name": "Demo",
+        "detail": "Demo Environment",
+        "comments": "Just an example for creating a config base on other config, it may not work"
+      },
+      "settingOverwrites": {
+        "baseConfig": "Staging",
+        "headerEnrichmentUrl": "http://demo.home.qa.itsonsaas.net",
+        "serviceDiscoveryUrl": "https://demo.home.itsonsaas.net:8443"
+      }
+    },
+    "STC_URL": {
+      "configInfo": {
+        "name": "sapphire_app_config.json URL",
+        "detail": "Load from predefined URL for Sapphire",
+        "comments": "Sapphire configs - it may be multiple configs"
+      },
+      "settingOverwrites": {
+        "configURL": "https://www.dropbox.com/s/92o0y4yfv88bwko/sapphire_app_config.json"
+      }
+    }
   }
 }
